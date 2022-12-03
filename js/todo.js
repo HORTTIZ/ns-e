@@ -1,5 +1,5 @@
 const inputVal = document.getElementsByClassName('inputVal')[0];
-
+const inputValId = document.getElementById('inputVal');
 const addTaskBtn = document.getElementsByClassName('btn')[0];
 
 
@@ -7,44 +7,44 @@ addTaskBtn.addEventListener('click', function (){
  
 if(inputVal.value.trim()!=0){
       let localItems = JSON.parse( localStorage.getItem('localItem'))
-   if(localItems === null){
-        taskList = []
-
-   }else{
-       taskList = localItems;
+      if(localItems === null){
+         taskList = []
+         
+      }else{
+         taskList = localItems;
+      }
+      taskList.push(inputVal.value)
+      localStorage.setItem('localItem', JSON.stringify(taskList)); 
    }
-   taskList.push(inputVal.value)
-   localStorage.setItem('localItem', JSON.stringify(taskList)); 
-}
-
+   
    showItem()
 })
 
 function showItem(){
    let localItems = JSON.parse( localStorage.getItem('localItem'))
    if(localItems === null){
-        taskList = []
-
+      taskList = []
+      
    }else{
-       taskList = localItems;
+      taskList = localItems;
    }
-
-
-let html = '';
-let itemShow = document.querySelector('.todoLists');
-taskList.forEach((data, index )=> {
    
-
-   html += `
-   <div class="todoList">
-   <div class="container-taskList" >
-   <button class="deleteTask" onClick="deleteItem(${index})"><img src="imgs/theme-lights/iconDelete50.png" id="imgDeleteTask"></button>
-   <p class="pText">${data}</p>
-   </div>
-   </div>
-   `
-})
-itemShow.innerHTML = html;
+   
+   let html = '';
+   let itemShow = document.querySelector('.todoLists');
+   taskList.forEach((data, index )=> {
+      
+      
+      html += `
+      <div class="todoList">
+      <div class="container-taskList" >
+      <button class="deleteTask" onClick="deleteItem(${index})"><img src="imgs/theme-lights/iconDelete50.png" id="imgDeleteTask"></button>
+      <p class="pText">${data}</p>
+      </div>
+      </div>
+      `
+   })
+   itemShow.innerHTML = html;
 }
 showItem()
 
@@ -57,6 +57,6 @@ function deleteItem(index){
 
 function clearTask(){
    
-localStorage.clear()
-showItem()
+   localStorage.clear()
+   showItem()
 }

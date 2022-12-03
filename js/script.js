@@ -1,101 +1,17 @@
-const contenedor = document.getElementById('container-saludo');
-const boton = document.getElementById('submitname');
-const loader = document.getElementById('loader');
-const containerLoad = document.getElementById('container-load');
+const btnUser = document.getElementById('imgProfile');
 
-boton.addEventListener('click', function() {
-    if (nameInput.value == 0) {
-        Swal.fire({
-            text: 'Ingresa un nombre',
-            icon: 'error',
-            width: '50%',
-            showDenyButton: false,
-            showCancelButton: false,
-            showConfirmButton: false,
-            allowOutsideClick: false,
-            timer: '2000',
-            timerProgressBar: true
-        })
-    } else {
-        setTimeout(function carga(){
-            loader.style.zIndex = '9999';
-            setTimeout(function noCargar() {
-                loader.style.zIndex = '-999';
-                loader.style.opacity = '0';
-
-            }, 1800);
-        }, 0);
-        setTimeout(function transicion(){
-            contenedor.style.display = 'none';
-            containerLoad.style.display = 'none';
-        }, 2000);
-    }
-})
-
-
-
-
-/* LOCAL STORAGE SALUDO USUARIO*/
-
-const rememberDiv = document.querySelector(".remember");
-const forgetDiv = document.querySelector(".forget");
-const form = document.querySelector("form");
-const nameInput = document.querySelector("#entername");
-const submitBtn = document.querySelector("#submitname");
-const forgetBtn = document.querySelector("#forgetname");
-
-const h1 = document.querySelector("h1");
-const personalGreeting = document.querySelector(".personal-greeting");
-
-
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
+/* EVENTOS*/
+btnUser.addEventListener('click', function() {
+    Swal.fire({
+        title: 'Propiedad',
+        text: 'La Aplicación Web y sus contenidos son diseñados, operados y administrados por, Horttiz, por ende toda propiedad industrial o intelectual, usados y/o desplegados aquí son propiedad exclusiva de HORTTIZ',
+        width: '90%',
+        showDenyButton: false,
+        showCancelButton: false,
+        showConfirmButton: true,
+        allowOutsideClick: false,
+        confirmButtonColor: '#ff213c',
+        imageUrl: 'imgs/brand/logo/logoMainBig.png',
+        footer: 'Cualquier uso no autorizado constituirá una violación a las normas vigentes nacionales e internacionales sobre propiedad industrial y/o derechos de autor según corresponda',
+    })
 });
-
-submitBtn.addEventListener("click", function () {
-    localStorage.setItem("name", nameInput.value);
-    nameDisplayCheck();
-});
-
-
-forgetBtn.addEventListener("click", function () {
-    localStorage.removeItem("nombre");
-    nameDisplayCheck();
-});
-
-// definir la función nameDisplayCheck()
-function nameDisplayCheck() {
-    if (localStorage.getItem("name")) {
-        let name = localStorage.getItem("name");
-        const ingreso = document.getElementById('ingreso').style.textDecoration = "underline";
-        h1.textContent = "Ingresar como: " + name;
-        h1.addEventListener('click', function(){
-            setTimeout(function carga(){
-                loader.style.zIndex = '9999';
-                setTimeout(function noCargar() {
-                    loader.style.zIndex = '-999';
-                    loader.style.opacity = '0';
-    
-                }, 1800);
-            }, 0);
-            setTimeout(function transicion(){
-                contenedor.style.display = 'none';
-                containerLoad.style.display = 'none';
-            }, 2000);
-        });
-        h1.style.cursor = 'pointer';
-        personalGreeting.textContent = "¡Bienvenido a nuestro sitio web, " + name + "! Esperamos que te diviertas mientras estés aquí.";
-        forgetDiv.style.display = "block";
-        rememberDiv.style.display = "none";
-    } else {
-        const ingreso = document.getElementById('ingreso').style.textDecoration = "none";
-        h1.textContent = "Bienvenido a nuestro sitio web ";
-        h1.style.cursor = 'default';
-        personalGreeting.textContent = "Bienvenido a nuestro sitio web. Esperamos que se diviertas mientras estés aquí.";
-        forgetDiv.style.display = "none";
-        rememberDiv.style.display = "block";
-    }
-} 
-
-document.body.onload = nameDisplayCheck;
-/* FINAL SALUDO USUARIO*/
