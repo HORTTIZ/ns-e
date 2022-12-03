@@ -104,7 +104,7 @@ html {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 .remember #entername {
-  width: 8rem;
+  width: 9rem;
   height: 3.5rem;
   margin: 0 auto;
   border: none;
@@ -157,15 +157,16 @@ html {
 .container-saludo h1 {
   display: grid;
   text-align: center;
-  width: 100%;
+  width: auto;
   height: auto;
   background: transparent;
-  color: green;
   font-size: 1.4rem;
   position: absolute;
   bottom: 21rem;
   color: white;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  /*border-bottom: .1rem solid white;*/
+  text-decoration: overlin;
 }
 
 /* FIN SALUDO INICIAL*/
@@ -264,7 +265,7 @@ header .content-header2 {
   flex-direction: column;
   justify-content: center;
   background: #d9d9d9;
-  position: absolute;
+  position: fixed;
   top: 19.3rem;
   right: 0;
   border: none;
@@ -500,7 +501,7 @@ header .content-header2 {
   place-items: center;
   width: 15rem;
   height: 5rem;
-  position: absolute;
+  position: fixed;
   bottom: 2.8rem;
   left: 30%;
   background: #FF213C;

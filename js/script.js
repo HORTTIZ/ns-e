@@ -1,6 +1,7 @@
 const contenedor = document.getElementById('container-saludo');
 const boton = document.getElementById('submitname');
 const loader = document.getElementById('loader');
+const containerLoad = document.getElementById('container-load');
 
 boton.addEventListener('click', function() {
     if (nameInput.value == 0) {
@@ -21,10 +22,12 @@ boton.addEventListener('click', function() {
             setTimeout(function noCargar() {
                 loader.style.zIndex = '-999';
                 loader.style.opacity = '0';
+
             }, 1800);
         }, 0);
         setTimeout(function transicion(){
             contenedor.style.display = 'none';
+            containerLoad.style.display = 'none';
         }, 2000);
     }
 })
@@ -64,12 +67,30 @@ forgetBtn.addEventListener("click", function () {
 function nameDisplayCheck() {
     if (localStorage.getItem("name")) {
         let name = localStorage.getItem("name");
-        h1.textContent = "Bienvenido, " + name;
+        const ingreso = document.getElementById('ingreso').style.textDecoration = "underline";
+        h1.textContent = "Ingresar como: " + name;
+        h1.addEventListener('click', function(){
+            setTimeout(function carga(){
+                loader.style.zIndex = '9999';
+                setTimeout(function noCargar() {
+                    loader.style.zIndex = '-999';
+                    loader.style.opacity = '0';
+    
+                }, 1800);
+            }, 0);
+            setTimeout(function transicion(){
+                contenedor.style.display = 'none';
+                containerLoad.style.display = 'none';
+            }, 2000);
+        });
+        h1.style.cursor = 'pointer';
         personalGreeting.textContent = "¡Bienvenido a nuestro sitio web, " + name + "! Esperamos que te diviertas mientras estés aquí.";
         forgetDiv.style.display = "block";
         rememberDiv.style.display = "none";
     } else {
+        const ingreso = document.getElementById('ingreso').style.textDecoration = "none";
         h1.textContent = "Bienvenido a nuestro sitio web ";
+        h1.style.cursor = 'default';
         personalGreeting.textContent = "Bienvenido a nuestro sitio web. Esperamos que se diviertas mientras estés aquí.";
         forgetDiv.style.display = "none";
         rememberDiv.style.display = "block";
