@@ -1,3 +1,5 @@
+const onNoise = document.getElementById('imgNoise');
+
 const containerMain = document.getElementById('container-main');
 setTimeout(function carga (){
     loader.style.opacity = '1';
