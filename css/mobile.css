@@ -14,6 +14,9 @@ html {
   font-size: 62.5%;
   font-family: 'Viga', sans-serif;
 }
+p, h1, h2, h3, h4, h5, h6, span, img, .stopwatch {
+  user-select: none;
+}
 
 /* INICIO ANIMATION LOAD*/
 #container-load {
@@ -207,8 +210,8 @@ header .content-header1 {
   border-end-end-radius: 50%;
 }
 .container-logo #imgLogo {
-  width: 7.5rem;
-  height: 7.5rem;
+  width: 4rem;
+  height: 4rem;
   margin: 0 auto;
   border-radius: 50%;
 }
@@ -221,7 +224,7 @@ header .content-header2 {
 .content-header2 .container-profile{
   width: 9rem;
   height: 9rem;
-  display: grid;
+  display: none;
   place-content: center;
   background: transparent;
 }
@@ -238,11 +241,12 @@ header .content-header2 {
 
 .container-quote {
   width: 100%;
-  height: 10.3rem;
+  height: 20.3rem;
   background: transparent;
   display: grid;
   place-content: center;
   margin: 0 auto;
+  background: transparent;
 }
 .container-quote p {
   display: inline-block;
@@ -261,11 +265,10 @@ header .content-header2 {
 /* INICIO BAR LATERAL */
 
 .bar-lateral {
-  width: 5.5rem;
-  height: 39.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 6rem;
+  height: 6rem;
+  display: grid;
+  place-items: center;
   background: #d9d9d9;
   position: fixed;
   top: 19.3rem;
@@ -275,8 +278,8 @@ header .content-header2 {
 }
 .bar-lateral .container-main-imgs {
   width: 100%;
-  height: 31.8rem;
-  display: flex;
+  height: auto;
+  display: grid;
   background-color: transparent;
   margin: 0 auto;
 }
@@ -295,6 +298,7 @@ header .content-header2 {
   width: 1.75rem;
   height: 1.75rem;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 /* FINAL DE BAR LATERAL*/
@@ -306,7 +310,8 @@ header .content-header2 {
 
 .container-cronometro {
   width: 100%;
-  height: 20.7rem;
+  height: 25.7rem;
+  min-height: 20rem;
   background: transparent;
   margin: 0 auto;
   display: grid;
@@ -373,16 +378,16 @@ header .content-header2 {
   width: 100%;
   height: .3rem;
   background-color: #c3c3c3;
-  margin: 0 auto;
+  margin: 0 auto 2rem auto;
 }
 
 /*TO DO*/
 .container{
-  width: 27.5rem;
+  width: 100%;
   min-height: 20rem;
   height: auto;
   background: transparent;
-  margin: 3rem  0 0 2rem ;
+  margin: 0 auto;
 }
 
 .todoList{
@@ -394,6 +399,19 @@ header .content-header2 {
   height: 4rem;
   flex-wrap: wrap;
   width: 100%;
+}
+.myTodo {
+  width: 100%;
+  height: auto;
+  background: transparent;
+  display: grid;
+  place-items: center;
+}
+.myTodo iframe {
+  border-radius: 1.5rem;
+  width: 95%;
+  height: 80rem;
+  margin: 0 auto;
 }
 .container-taskList {
   display: flex;
@@ -459,7 +477,7 @@ header .content-header2 {
   font-size: 4rem;
   display: inline-block;
   background-color: transparent;
-  margin: 0 0 1rem 0;
+  margin: 1rem 0 1rem 2rem;
 }
 .inputVal{
   width: 22.5rem;
@@ -469,7 +487,7 @@ header .content-header2 {
   border: none;
   border-radius: 1.5rem;
   background: #d9d9d9;
-  display: flex;
+  display: none;
   outline: none;
   padding: 0 2rem 0 2rem;
   margin: 0 0 3rem 0;
@@ -478,7 +496,7 @@ header .content-header2 {
 }
 
 .btn{
-  display: grid;
+  display: none;
   place-content: center;
   place-items: center;
   place-self: top;
@@ -497,7 +515,7 @@ header .content-header2 {
   margin: 0 auto;
 }
 .clearTask{
-  display: grid;
+  display: none;
   grid-template-columns: repeat(2, auto);
   place-content: center;
   place-items: center;
